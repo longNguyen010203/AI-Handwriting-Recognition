@@ -1,1 +1,3 @@
 .ui_venv/
+
+__pycache__/
