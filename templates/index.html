@@ -8,49 +8,19 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body class="bg-light">
-    <div class="container mt-5 text-center">
-        <h1 class="mb-4">Handwriting Recognition</h1>
-        <canvas id="canvas" class="border"></canvas>
+    <div class="container text-center mt-5">
+        <!-- Logo -->
+        <img src="{{ url_for('static', filename='logo_rm_bg.png') }}" alt="Logo" class="logo">
+
+        <!-- Tên dự án -->
+        <!-- <h1 class="mt-3">Handwriting Recognition</h1>
+          -->
+        <img src="{{ url_for('static', filename='proj_name-rm.png') }}" alt="Logo" class="logo">
+
+        <!-- Nút Start -->
         <br>
-        <button class="btn btn-primary btn-spacing" onclick="recognize()">Recognize</button>
-        <button class="btn btn-danger" onclick="clearCanvas()">Clear</button>
-        <h3 class="mt-3"><strong>Recognized Text:</strong> <span id="result">...</span></h3>
+        <br>
+        <a href="{{ url_for('recognize') }}" class="btn btn-primary mt-4 btn-lg">Start</a>
     </div>
-
-    <script>
-        const canvas = document.getElementById("canvas");
-        const ctx = canvas.getContext("2d");
-        canvas.width = 600;
-        canvas.height = 450;
-        ctx.fillStyle = "white";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        let painting = false;
-        canvas.addEventListener("mousedown", () => (painting = true));
-        canvas.addEventListener("mouseup", () => (painting = false, ctx.beginPath()));
-        canvas.addEventListener("mousemove", (event) => {
-            if (!painting) return;
-            ctx.lineWidth = 4;
-            ctx.lineCap = "round";
-            ctx.strokeStyle = "black";
-            ctx.lineTo(event.offsetX, event.offsetY);
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.moveTo(event.offsetX, event.offsetY);
-        });
-
-        function clearCanvas() {
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            document.getElementById("result").innerText = "...";
-        }
-
-        function recognize() {
-            // Gửi ảnh đến backend (giả lập)
-            document.getElementById("result").innerText = "Processing...";
-            fetch("/recognize", { method: "POST" })
-                .then(response => response.json())
-                .then(data => document.getElementById("result").innerText = data.text);
-        }
-    </script>
 </body>
 </html>
