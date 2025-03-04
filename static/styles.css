@@ -13,3 +13,22 @@ canvas {
     gap: 20px; /* Tạo khoảng cách 20px giữa các nút */
     justify-content: center; /* Căn giữa */
 }
+
+.logo {
+    width: 650px; /* Điều chỉnh kích thước logo */
+    height: auto;
+}
+
+.logo1 {
+    width: 550px; /* Điều chỉnh kích thước logo */
+    height: auto;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.btn-lg {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+}
