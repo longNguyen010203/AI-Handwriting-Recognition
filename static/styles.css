@@ -24,11 +24,39 @@ canvas {
     height: auto;
 }
 
-h1 {
+/* h1 {
     font-size: 2.5rem;
     font-weight: bold;
+} */
+@font-face {
+    font-family: "Dela";
+    src: url("dela.TTF") format("truetype");
 }
+
+h1 {
+    font-family: "Dela", sans-serif;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    white-space: pre-line;
+    color: #3c23c5;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+h1 span {
+    color: #333; /* Xám đen */
+}
+
 .btn-lg {
     padding: 15px 40px;
     font-size: 1.2rem;
+}
+
+.btn-primary {
+    background-color: #3c23c5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
 }
