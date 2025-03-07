@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Handwriting Prediction</title>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @font-face {
+        font-family: "Dela";
+        src: url("static/dela.TTF") format("truetype");
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        display: flex;
+        width: 80%;
+        max-width: 900px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      /* Cột 1 - Ảnh */
+      .image-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      /* Cột 2 - Nội dung */
+      .content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Căn trái */
+      }
+
+      h1 {
+        font-family: "Dela", sans-serif;
+        font-size: 2.5rem;
+        line-height: 1.2;
+        white-space: pre-line;
+        color: #3c23c5;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 15px;
+      }
+
+      h1 span {
+        color: #333; /* Xám đen */
+      }
+
+      /* Nút Upload */
+      .btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 24px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: white;
+        background-color: #3c23c5;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .btn i {
+        font-size: 1.2rem;
+      }
+
+      .btn:hover {
+        background-color: #2a18a1;
+      }
+
+      /* Ghi chú về file */
+      .note {
+        margin-top: 10px;
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .content {
+          align-items: center;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Cột 1: Ảnh -->
+      <div class="image-container">
+        <img src="static/bgr.png" alt="Image" />
+      </div>
+
+      <!-- Cột 2: Text và Button -->
+      <div class="content">
+        <h1>Handwritting<br /><span>Recognition</span></h1>
+        <a href="{{ url_for('recognize') }}">
+          <button class="btn"><i class="fas fa-upload"></i>Start Now</button>
+        </a>
+        <!-- <p class="note">Chỉ chấp nhận file .png, .jpg, .jpeg (tối đa 5MB)</p> -->
+      </div>
+    </div>
+  </body>
+</html>
