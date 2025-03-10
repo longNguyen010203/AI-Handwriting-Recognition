@@ -7,6 +7,9 @@ from flask import Flask, render_template, request, jsonify
 from PIL import Image
 import tensorflow as tf
 
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+
 app = Flask(__name__)
 CORS(app)
 
